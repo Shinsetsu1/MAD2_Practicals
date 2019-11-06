@@ -17,6 +17,7 @@ class AddContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
@@ -26,6 +27,10 @@ class AddContactViewController: UIViewController {
     }
     
     @IBAction func createBtn(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.contactList.append(Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
+        print(String(appDelegate.contactList.endIndex-1))
+        
     }
     
 }
