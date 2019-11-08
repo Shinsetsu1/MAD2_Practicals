@@ -49,5 +49,19 @@ class ShowContactViewController: UITableViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "edit") {
+            let path = tableView.indexPathForSelectedRow
+            let destination = segue.destination as! DetailTableViewController
+            destination.index = path?.row
+            //destination.firstname = appDelegate.contactList
+            
+        }
+    }
+    
+    @IBAction func saveToContactViewController (segue:UIStoryboardSegue){
+        
+    }
 
 }
