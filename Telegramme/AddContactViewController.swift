@@ -27,9 +27,12 @@ class AddContactViewController: UIViewController {
     }
     
     @IBAction func createBtn(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.contactList.append(Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
-        print(String(appDelegate.contactList.endIndex-1))
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.contactList.append(Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
+//        print(String(appDelegate.contactList.endIndex-1))
+
+        let controller = ContactController()
+        controller.AddContact(newContact: Contact(firstname: firstNameFld.text!, lastname: lastNameFld.text!, mobileno: mobileFld.text!))
         
     }
     

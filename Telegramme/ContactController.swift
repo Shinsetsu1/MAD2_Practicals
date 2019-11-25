@@ -15,6 +15,7 @@ class ContactController {
     @IBOutlet weak var editFirstNameFld: UITextField!
     @IBOutlet weak var editLastNameFld: UITextField!
     @IBOutlet weak var editMobileNoFld: UITextField!
+    
     //Add a new contact to Core Data
     func AddContact(newContact:Contact){
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
@@ -23,9 +24,9 @@ class ContactController {
         let entity = NSEntityDescription.entity(forEntityName: "CDContact", in: context)!
         
         let contact = NSManagedObject(entity: entity, insertInto: context)
-        contact.setValue("Kheng", forKeyPath: "firstname")
-        contact.setValue("Hin", forKeyPath: "lastname")
-        contact.setValue("98219255", forKey: "mobileno")
+        contact.setValue(newContact.firstName, forKeyPath: "firstname")
+        contact.setValue(newContact.lastName, forKeyPath: "lastname")
+        contact.setValue(newContact.mobileNo, forKey: "mobileno")
         
         do {
             try context.save()
@@ -39,7 +40,7 @@ class ContactController {
     func retrieveAllContact()->[Contact]{
         var contact:[NSManagedObject] = []
         
-        var contactList: [Contact]
+        var contactList: [Contact] = []
         
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -54,6 +55,7 @@ class ContactController {
                 let mobileno = c.value(forKeyPath: "mobileno") as? String
                 print("\(firstname!) \(lastname!), \(mobileno!)")
                 let newContact = Contact(firstname: firstname ?? "", lastname: lastname ?? "", mobileno: mobileno ?? "")
+                contactList.append(newContact)
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -97,10 +99,17 @@ class ContactController {
         fetchRequest.predicate = NSPredicate(format:"mobileno = %@", mobileno)
         
         do {
-            let result = try managedContext.fetch(fetchRequest)
-            let obj = result[0] as! NSManagedObject
-            
-            
+            if let result = try? managedContext.fetch(fetchRequest) {
+                for obj in result as! [NSManagedObject] {
+                    managedContext.delete(obj)
+                }
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print ("Deletion error: \(error), \(error.userInfo)")
+                }
+            }
         }
     }
     
