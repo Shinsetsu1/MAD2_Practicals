@@ -10,6 +10,10 @@ import UIKit
 
 class UpdateController: UIViewController {
     
+    @IBOutlet weak var editFirstNameFld: UITextField!
+    @IBOutlet weak var editLastNameFld: UITextField!
+    @IBOutlet weak var editMobileNoFld: UITextField!
+    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var rowSelected: Int!
@@ -20,14 +24,15 @@ class UpdateController: UIViewController {
 
         // Do any additional setup after loading the view.
 //        let contact = appDelegate.contactList[rowSelected]
-//
-//        let startFirstName = contact.firstName
-//        let startLastName = contact.lastName
-//        let startMobileNo = contact.mobileNo
+        let contact = parentController.contactList[rowSelected]
+
+        let startFirstName = contact.firstName
+        let startLastName = contact.lastName
+        let startMobileNo = contact.mobileNo
         
-//        editFirstNameFld.text = startFirstName
-//        editLastNameFld.text = startLastName
-//        editMobileNoFld.text = startMobileNo
+        editFirstNameFld.text = startFirstName
+        editLastNameFld.text = startLastName
+        editMobileNoFld.text = startMobileNo
         
         print("\(rowSelected)/")
     }
@@ -43,17 +48,12 @@ class UpdateController: UIViewController {
     }
     */
     
-    @IBOutlet weak var editFirstNameFld: UITextField!
-    @IBOutlet weak var editLastNameFld: UITextField!
-    @IBOutlet weak var editMobileNoFld: UITextField!
     @IBAction func saveBtn(_ sender: Any) {
-//        let updatedFirstName = editFirstNameFld.text
-//        let updatedLastName = editLastNameFld.text
-//        let updatedMobileNo = editMobileNoFld.text
-//        let contact = appDelegate.contactList[rowSelected]
-//        contact.firstName = updatedFirstName!
-//        contact.lastName = updatedLastName!
-//        contact.mobileNo = updatedMobileNo!
-//        self.navigationController?.popViewController(animated: true)
+        let updatedFirstName = editFirstNameFld.text!
+        let updatedLastName = editLastNameFld.text!
+        let updatedMobileNo = editMobileNoFld.text!
+        let contact = parentController.contactList[rowSelected]
+        ContactController().updateContact(mobileno: contact.mobileNo, newContact: Contact(firstname: updatedFirstName, lastname: updatedLastName, mobileno: updatedMobileNo))
+        self.navigationController?.popViewController(animated: true)
     }
 }

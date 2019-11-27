@@ -47,6 +47,7 @@ class ShowContactViewController: UITableViewController {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
             if indexPath.section == 0 {
+                ContactController().deleteContact(mobileno: contactList[indexPath.row].mobileNo)
                 contactList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
