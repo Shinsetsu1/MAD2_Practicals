@@ -119,8 +119,8 @@ class ContactController {
         fetchRequest.predicate = NSPredicate(format: "lastname = %@", friend.lastName)
         do {
             let result = try context.fetch(fetchRequest)
-            print("Added for \(result[0].value(")
-            let cdContact =
+            print("Added for \(result[0].value(forKeyPath: "lastname") as! String)")
+            let cdContact = result[0]
             cdMessage.setValue(cdContact, forKey: "friend")
             try context.save()
         } catch {
