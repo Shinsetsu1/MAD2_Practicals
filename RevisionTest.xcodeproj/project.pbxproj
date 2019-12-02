@@ -14,6 +14,8 @@
 		8722A3932395079E00F07E42 /* RevisionTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8722A3912395079E00F07E42 /* RevisionTest.xcdatamodeld */; };
 		8722A3952395079F00F07E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8722A3942395079F00F07E42 /* Assets.xcassets */; };
 		8722A3982395079F00F07E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8722A3962395079F00F07E42 /* LaunchScreen.storyboard */; };
+		8722A3A023950BE200F07E42 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8722A39F23950BE200F07E42 /* RecipeTableViewController.swift */; };
+		8722A3A4239511E800F07E42 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8722A3A3239511E800F07E42 /* Content.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8722A3942395079F00F07E42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8722A3972395079F00F07E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8722A3992395079F00F07E42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8722A39F23950BE200F07E42 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
+		8722A3A3239511E800F07E42 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				8722A3962395079F00F07E42 /* LaunchScreen.storyboard */,
 				8722A3992395079F00F07E42 /* Info.plist */,
 				8722A3912395079E00F07E42 /* RevisionTest.xcdatamodeld */,
+				8722A39F23950BE200F07E42 /* RecipeTableViewController.swift */,
+				8722A3A3239511E800F07E42 /* Content.storyboard */,
 			);
 			path = RevisionTest;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8722A3A4239511E800F07E42 /* Content.storyboard in Resources */,
 				8722A3982395079F00F07E42 /* LaunchScreen.storyboard in Resources */,
 				8722A3952395079F00F07E42 /* Assets.xcassets in Resources */,
 				8722A3902395079E00F07E42 /* Main.storyboard in Resources */,
@@ -145,6 +152,7 @@
 				8722A38D2395079E00F07E42 /* ViewController.swift in Sources */,
 				8722A3892395079E00F07E42 /* AppDelegate.swift in Sources */,
 				8722A38B2395079E00F07E42 /* SceneDelegate.swift in Sources */,
+				8722A3A023950BE200F07E42 /* RecipeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
