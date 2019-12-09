@@ -23,11 +23,37 @@ class AddRecipeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func btnAdd(_ sender: Any) {
-        let messageAlert = UIAlertController(title: "Empty Field", message: "Please populate the title and preparation time.", preferredStyle: .alert)
-        
-        messageAlert.addAction(UIAlertAction(title: "Noted", style: .default, handler: nil))
-        
-        self.present(messageAlert, animated: true)
+        if (txtTitle.text?.isEmpty ?? true) {
+            let messageAlert = UIAlertController(title: "Empty Field", message: "Please populate the title and preparation time.", preferredStyle: .alert)
+            
+            messageAlert.addAction(UIAlertAction(title: "Noted", style: .default, handler: nil))
+            
+            self.present(messageAlert, animated: true)
+        }
+        else if (txtPreparationTime.text?.isEmpty ?? true) {
+            let messageAlert = UIAlertController(title: "Empty Field", message: "Please populate the title and preparation time.", preferredStyle: .alert)
+            
+            messageAlert.addAction(UIAlertAction(title: "Noted", style: .default, handler: nil))
+            
+            self.present(messageAlert, animated: true)
+        }
+        else if (txtIngredient1.text?.isEmpty ?? true && txtIngredient2.text?.isEmpty ?? true && txtIngredient3.text?.isEmpty ?? true && txtIngredient4.text?.isEmpty ?? true && txtIngredient5.text?.isEmpty ?? true) {
+            let messageAlert = UIAlertController(title: "Empty Field", message: "Please populate at least 1 ingredient field.", preferredStyle: .alert)
+            
+            messageAlert.addAction(UIAlertAction(title: "Noted", style: .default, handler: nil))
+            
+            self.present(messageAlert, animated: true)
+        }
+        else {
+            let controller = RecipeController()
+            controller.AddRecipe(newRecipe: Recipe(recipeTitle: txtTitle.text!, recipePrepTime: txtPreparationTime.text!))
+            controller.AddIngredientToRecipe(recipe: Recipe(recipeTitle: txtTitle.text!, recipePrepTime: txtPreparationTime.text!), ingredient: Ingredient(recipeIngredients: txtIngredient1.text! + txtIngredient2.text! + txtIngredient3.text! + txtIngredient4.text! + txtIngredient5.text!))
+            let messageAlert = UIAlertController(title: "Success", message: "New Recipe is successfully added!", preferredStyle: .alert)
+            
+            messageAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(messageAlert, animated: true)
+        }
     }
     
 }
