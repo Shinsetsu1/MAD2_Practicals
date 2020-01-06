@@ -71,17 +71,40 @@
                     <connections>
                         <segue destination="KcK-iw-c4k" kind="relationship" relationship="viewControllers" id="bt9-4o-nzn"/>
                         <segue destination="FZI-yN-uTp" kind="relationship" relationship="viewControllers" id="1Az-Yp-IaL"/>
+                        <segue destination="Ykp-A9-72i" kind="relationship" relationship="viewControllers" id="ird-op-4iq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1F-qQ-OXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1086" y="-998"/>
         </scene>
-        <!--Item 2-->
+        <!--Map-->
+        <scene sceneID="A6N-nE-Hgt">
+            <objects>
+                <viewController id="Ykp-A9-72i" customClass="MapViewController" customModule="Telegramme" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LO2-Gl-Jg5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ1-PX-JrE">
+                                <rect key="frame" x="20" y="44" width="374" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="X9r-jp-v36"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="zAM-bD-EBW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clj-WK-6pe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1088.4057971014493" y="-243.08035714285714"/>
+        </scene>
+        <!--Contact List-->
         <scene sceneID="rRg-fY-xGM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FZI-yN-uTp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="2cA-kV-eTQ"/>
+                    <tabBarItem key="tabBarItem" title="Contact List" id="2cA-kV-eTQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wPf-AU-Jyb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -195,11 +218,11 @@
             </objects>
             <point key="canvasLocation" x="1598.5507246376812" y="-676.33928571428567"/>
         </scene>
-        <!--Item 1-->
+        <!--New Contact-->
         <scene sceneID="pcg-f7-Kyl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KcK-iw-c4k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="wti-un-TZ4"/>
+                    <tabBarItem key="tabBarItem" title="New Contact" id="wti-un-TZ4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j5u-fv-TJW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
