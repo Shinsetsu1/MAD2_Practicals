@@ -51,5 +51,25 @@ class MapViewController: UIViewController {
             longitudinalMeters: regionRadius)
         
         map.setRegion(coordinateRegion, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = location.coordinate
+        annotation.title = "Ngee Ann Polytechnic"
+        annotation.subtitle = "School of ICT"
+        self.map.addAnnotation(annotation)
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(
+            "535 Clementi Road Singapore 599489",
+            completionHandler: {p,e in
+            
+            let lat = String(
+                format: "Lat: %3.12f", p![0].location!.coordinate.latitude)
+            let long = String(
+                format: "Long: %3.12f", p![0].location!.coordinate.longitude)
+                
+            print("\(lat), \(long)")
+        })
     }
 }

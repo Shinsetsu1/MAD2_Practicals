@@ -15,6 +15,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func startBtn(_ sender: Any) {
+        if true {
+            let storyboard = UIStoryboard(name: "Content", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Content") as
+                UIViewController
+            vc.modalPresentationStyle = .fullScreen // try without fullscreen
+            present(vc, animated: true, completion: nil)
+        }
+    }
+    
 }
 
