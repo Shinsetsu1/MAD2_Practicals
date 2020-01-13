@@ -13,7 +13,7 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var map: MKMapView!
+    let regionRadius: CLLocationDistance = 250
     
     let locationDelegate = LocationDelegate()
     var latestLocation: CLLocation? = nil
@@ -34,14 +34,35 @@ class MapViewController: UIViewController {
             self.latestLocation = location
             let lat = String(format: "Lat: %3.8f", location.coordinate.latitude)
             let long = String(format: "Long: %3.8f", location.coordinate.longitude)
-            print("\(lat), \(long)")
+            print("My current location \(lat), \(long)")
             
             self.centerMapOnLocation(location: location)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            annotation.title = "Me"
+            annotation.subtitle = "Current location"
+            self.map.addAnnotation(annotation)
+                  
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString("535 Clementi Road Singapore 599489",completionHandler: {p,e in
+
+                let lat = String(
+                    format: "Lat: %3.12f", p![0].location!.coordinate.latitude)
+                let long = String(
+                    format: "Long: %3.12f", p![0].location!.coordinate.longitude)
+                
+                let annotation2 = MKPointAnnotation()
+                annotation2.coordinate = p![0].location!.coordinate
+                annotation2.title = "Ngee Ann Polytechnic"
+                annotation2.subtitle = "School of ICT"
+                self.map.addAnnotation(annotation2)
+
+                print("\(lat), \(long)")
+            })
         }
     }
-    
-    
-    let regionRadius: CLLocationDistance = 250
+    @IBOutlet weak var map: MKMapView!
     
     func centerMapOnLocation(location: CLLocation)
     {
@@ -51,25 +72,5 @@ class MapViewController: UIViewController {
             longitudinalMeters: regionRadius)
         
         map.setRegion(coordinateRegion, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        
-        annotation.coordinate = location.coordinate
-        annotation.title = "Ngee Ann Polytechnic"
-        annotation.subtitle = "School of ICT"
-        self.map.addAnnotation(annotation)
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(
-            "535 Clementi Road Singapore 599489",
-            completionHandler: {p,e in
-            
-            let lat = String(
-                format: "Lat: %3.12f", p![0].location!.coordinate.latitude)
-            let long = String(
-                format: "Long: %3.12f", p![0].location!.coordinate.longitude)
-                
-            print("\(lat), \(long)")
-        })
     }
 }
